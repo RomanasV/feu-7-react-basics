@@ -1,0 +1,31 @@
+:root {
+  --shops-list-gap: 15px;
+}
+
+.shops-wrapper {
+  width: 50%;
+}
+
+.shops-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--shops-list-gap);
+}
+
+@media screen and (max-width: 999px) {
+  .shops-wrapper {
+    width: 60%;
+  }
+}
+
+@media screen and (max-width: 799px) {
+  .shops-wrapper {
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 599px) {
+  .shops-wrapper {
+    width: 100%;
+  }
+}

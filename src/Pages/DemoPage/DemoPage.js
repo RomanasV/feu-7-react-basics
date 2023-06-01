@@ -1,8 +1,9 @@
-import logo from './images/logo.svg';
+import logo from '../../images/logo.svg';
+import './DemoPage.css';
 
 function DemoPage() {
   const paragraphText = 'Cia yra paragrafas';
-  
+
   return (
     <header className="App-header">
       <img src={logo} className="App-logo" alt="logo" />

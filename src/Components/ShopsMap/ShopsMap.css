@@ -1,0 +1,28 @@
+.map-wrapper {
+  width: 50%;
+}
+
+.map-wrapper iframe {
+  width: 100%;
+  height: 100%;
+}
+
+@media screen and (max-width: 999px) {
+  .map-wrapper {
+    width: 40%;
+  }
+}
+
+@media screen and (max-width: 799px) {
+  .map-wrapper {
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 599px) {
+  .map-wrapper {
+    width: 100%;
+    order: -10;
+    height: 350px;
+  }
+}

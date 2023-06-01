@@ -1,11 +1,10 @@
-import './App.css';
-import ContactUs from './ContactUs';
-import DemoPage from './DemoPage';
+import ContactUsPage from './Pages/ContactUsPage/ContactUsPage';
+// import DemoPage from './Pages/DemoPage/DemoPage';
 
 function App() {
   return (
     <div className="App">
-      <ContactUs />
+      <ContactUsPage />
       {/* <DemoPage /> */}
     </div>
   );

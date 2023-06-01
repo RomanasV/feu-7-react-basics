@@ -1,0 +1,35 @@
+.shops-list .shop-item {
+  background-color: white;
+  box-shadow: 0 2px 5px 1px rgba(0, 0, 0, 0.3);
+  padding: 15px;
+  width: calc((100% - var(--shops-list-gap)) / 2);
+}
+
+.shops-list .shop-item ul.shop-address-list {
+  list-style-type: none;
+  padding-left: 0;
+  font-weight: 700;
+}
+
+.shops-list .shop-item ul.shop-address-list a {
+  font-weight: 400;
+  text-decoration: none;
+}
+
+@media screen and (max-width: 799px) {
+  .shops-list .shop-item {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 599px) {
+  .shops-list .shop-item {
+    width: calc((100% - var(--shops-list-gap)) / 2);
+  }
+}
+
+@media screen and (max-width: 449px) {
+  .shops-list .shop-item {
+    width: 100%;
+  }
+}
