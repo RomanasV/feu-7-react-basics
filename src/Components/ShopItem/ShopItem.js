@@ -1,4 +1,5 @@
 import './ShopItem.css';
+import Card from '../Card/Card';
 
 function ShopItem(props) {
   const { title, email, phone, address, addressLink } = props.data;
@@ -21,7 +22,7 @@ function ShopItem(props) {
   }
 
   return (
-    <div className="shop-item">
+    <Card classes='shop-item'>
       <h2 className="shop-title">{title}</h2>
 
       <ul className="shop-address-list">
@@ -38,7 +39,7 @@ function ShopItem(props) {
         {emailElement}
         {addressElement}
       </ul>
-    </div>
+    </Card>
   )
 }
 
