@@ -6,7 +6,7 @@ function ContactUsPage() {
   return (
     <div className="container">
       <div className="content">
-        <ShopsList />
+        <ShopsList title="Find Us" />
         <ShopsMap />
       </div>
     </div>
