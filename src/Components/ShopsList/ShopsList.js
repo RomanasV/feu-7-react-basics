@@ -28,16 +28,22 @@ function ShopsList(props) {
     }
   ];
 
-  const shopListElements = shopsData.map((shop, index) => (
-    <ShopItem 
-      key={index}
-      title={shop.title} 
-      phone={shop.phone}
-      email={shop.email}
-      address={shop.address}
-      addressLink={shop.addressLink}
-    />
-  ))
+  // const shopListElements = [];
+
+  // for (let i = 0; i < shopsData.length; i++) {
+  //   shopListElements.push(
+  //     <ShopItem 
+  //       key={i}
+  //       title={shopsData[i].title} 
+  //       phone={shopsData[i].phone}
+  //       email={shopsData[i].email}
+  //       address={shopsData[i].address}
+  //       addressLink={shopsData[i].addressLink}
+  //     />
+  //   );
+  // }
+
+  const shopListElements = shopsData.map((shop, index) => <ShopItem key={index} data={shop} />);
 
   return (
     <div className="shops-wrapper">

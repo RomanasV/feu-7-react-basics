@@ -1,15 +1,7 @@
 import './ShopItem.css';
 
-function ShopItem({ title, email, phone, address, addressLink }) {
-  console.log(title)
-
-  // const title = props.title;
-  // const email = props.email;
-  // const phone = props.phone;
-  // const address = props.address;
-  // const addressLink = props.addressLink;
-
-  // const { title, email, phone, address, addressLink } = props;
+function ShopItem(props) {
+  const { title, email, phone, address, addressLink } = props.data;
   
   if (!title) {
     return '';
