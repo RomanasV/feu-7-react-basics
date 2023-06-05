@@ -10,8 +10,7 @@ const NewsPage = () => {
     <Container>
       <div className="content-wrapper">
         <main className="main-content">
-          <NewsWrapper />
-
+          <NewsWrapper title='Naujienos' />
           <VideoSection />
         </main>
 

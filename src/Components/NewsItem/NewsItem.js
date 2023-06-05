@@ -1,14 +1,28 @@
-const NewsItem = () => {
+const NewsItem = ({ url, imgSrc, imgAlt, title, category, date }) => {
+  // const { url, imgSrc, imgAlt, title, category, date } = props;
+
+  if (!title || !url) {
+    return '';
+  }
+
+  const imageElement = imgSrc && (
+    <div className="image-wrapper">
+      <img src={imgSrc} alt={imgAlt ? imgAlt : ''} />
+    </div>
+  );
+
+  const categoryElement = category && <span className="news-category">{category}</span>;
+  const titleElement = <h3 className="news-title">{title}</h3>;
+  const dateElement = date && <span className="news-date">{date}</span>;
+
   return (
     <div className="news-item">
-      <a href="/#">
-        <div className="image-wrapper">
-          <img src="https://codeacademy.lt/wp-content/uploads/2023/01/pexels-christina-morillo-1181467-1536x1025.jpg" alt='' />
-        </div>
+      <a href={url}>
+        {imageElement}
         <div className="news-content">
-          <span className="news-category">AI & deep learning</span>
-          <h3 className="news-title">Ar „ChatGPT“ užims mūsų darbo vietas?</h3>
-          <span className="news-date">2023-01-27</span>
+          {categoryElement}
+          {titleElement}
+          {dateElement}
         </div>
       </a>
     </div>
