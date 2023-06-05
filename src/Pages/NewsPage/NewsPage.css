@@ -162,11 +162,13 @@ body {
   align-items: center; */
   display: grid;
   place-items: center;
+  grid-column-start: 2;
 }
 
 .podcast-controls .podcast-play {
   border: none;
   background-color: white;
+  grid-column-end: -1;
 }
 
 .podcast-content {

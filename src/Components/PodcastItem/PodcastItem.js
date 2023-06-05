@@ -1,16 +1,24 @@
-import podcastImage from '../../images/podcast-image.jpg';
+const PodcastItem = ({ data }) => {
+  const { date, image, length, title } = data;
 
-const PodcastItem = () => {
+  if (!title) {
+    return '';
+  }
+
+  const imageElement = image && <img className="podcast-image" src={image} alt='Podcast Host' />;
+  const lengthElement = length && <span className="podcast-length">Trukmė: {length}</span>;
+  const dateElement = date && <span className="podcast-date">{date}</span>;
+
   return (
     <div className="podcast">
       <div className="podcast-controls">
-        <img className="podcast-image" src={podcastImage} alt='Podcast Host' />
-        <span className="podcast-length">Trukmė: 7:55</span>
+        {imageElement}
+        {lengthElement}
         <button className="podcast-play">Play</button>
       </div>
       <div className="podcast-content">
-        <h3 className="podcast-title">Pojūčius pirštų galiukams sugrąžinti gali smegenų implantas</h3>
-        <span className="podcast-date">2021-09-02</span>
+        <h3 className="podcast-title">{title}</h3>
+        {dateElement}
       </div>
     </div>
   )

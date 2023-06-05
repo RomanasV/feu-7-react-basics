@@ -1,19 +1,41 @@
-const EventItem = () => {
+const EventItem = ({ data }) => {
+  const { date, location, title, url, image } = data;
+
+  if (!title || !url) {
+    return '';
+  }
+
+  const locationElement = location && <span className="event location">{location}</span>;
+
+  const imageElement = image && image.src && (
+    <div className="image-wrapper">
+      <img className="event-image" src={image.src} alt={image.alt ? image.alt : ''} />
+    </div>
+  )
+
+  const { day, month } = date;
+
+  let dateElement = '';
+
+  if (date && (day || month)) {
+    dateElement = (
+      <div className="event-date">
+        {day && <span className="event-day">{day}</span>}
+        {month && <span className="event-month">{month}</span>}
+      </div>
+    );
+  }
+
   return (
     <div className="event">
-      <a href="/#">
-        <div className="image-wrapper">
-          <img className="event-image" src="https://codeacademy.lt/wp-content/uploads/2023/01/Screenshot-2023-01-13-150320-300x298.png" alt='' />
-        </div>
+      <a href={url}>
+        {imageElement}
         <div className="event-content">
-          <div className="event-date">
-            <span className="event-day">17</span>
-            <span className="event-month">Sau</span>
-          </div>
+          {dateElement}
 
           <div className="event-info">
-            <span className="event location">Online</span>
-            <h3 className="event-title">CodeAcademy Talents</h3>
+            {locationElement}
+            <h3 className="event-title">{title}</h3>
           </div>
         </div>
       </a>
