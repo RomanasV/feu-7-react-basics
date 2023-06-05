@@ -1,36 +1,25 @@
-import { Routes, Route, Link, NavLink } from 'react-router-dom';
+import { Routes, Route, Link } from 'react-router-dom';
 
 import ContactUsPage from './Pages/ContactUsPage/ContactUsPage';
 import DemoPage from './Pages/DemoPage/DemoPage';
 import Container from './Components/Container/Container';
 import Card from './Components/Card/Card';
+import PageHeader from './Components/PageHeader/PageHeader';
+import NewsPage from './Pages/NewsPage/NewsPage';
 
 function App() {
   return (
     <div className='App'>
 
       <Container classes='custom-container'>
-        <nav className='main-navigation'>
-          <ul className='nav-list'>
-            <li className='nav-item'>
-              <NavLink to='/' className='nav-link'>Home</NavLink>
-            </li>
-
-            <li className='nav-item'>
-              <NavLink to='/demo' className='nav-link'>Demo Page</NavLink>
-            </li>
-
-            <li className='nav-item'>
-              <NavLink to='/contact-us' className='nav-link'>Contacts Page</NavLink>
-            </li>
-          </ul>
-        </nav>
+        <PageHeader />
       </Container>
 
       <Routes>
         <Route path='/' element={<h1>Home Page</h1>} />
         <Route path='/demo' element={<DemoPage />} />
         <Route path='/contact-us' element={<ContactUsPage />} />
+        <Route path='/news' element={<NewsPage />} />
         <Route path='*' element={
           <Container>
             <Card>
