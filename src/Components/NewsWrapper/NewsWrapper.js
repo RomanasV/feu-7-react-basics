@@ -7,7 +7,7 @@ const NewsWrapper = ({ title }) => {
 
   const mainNewsData = [
     {
-      title: 'Ar „ChatGPT“ užims mūsų darbo vietas?' ,
+      title: 'Pavadinimas' ,
       url: '/#',
       category: 'AI & deep learning',
       date: '2023-01-27',
@@ -24,20 +24,42 @@ const NewsWrapper = ({ title }) => {
     }
   ];
 
-  const mainNewsElements = mainNewsData.map((newsData) => {
-    const { title, url, category, date, imgSrc, imgAlt } = newsData;
+  const secondaryNewsData = [
+    {
+      title: 'Pavadinimas' ,
+      url: '/#',
+      category: 'AI & deep learning',
+      date: '2023-01-27',
+      imgSrc: 'https://codeacademy.lt/wp-content/uploads/2023/01/pexels-christina-morillo-1181467-1536x1025.jpg',
+      imgAlt: '',
+    },
+    {
+      title: 'Ar „ChatGPT“ užims mūsų darbo vietas?' ,
+      url: '/#',
+      category: 'AI & deep learning',
+      date: '2023-01-27',
+      imgSrc: 'https://codeacademy.lt/wp-content/uploads/2023/01/pexels-christina-morillo-1181467-1536x1025.jpg',
+      imgAlt: '',
+    },
+    {
+      title: 'Pavadinimas' ,
+      url: '/#',
+      category: 'AI & deep learning',
+      imgSrc: 'https://codeacademy.lt/wp-content/uploads/2023/01/pexels-christina-morillo-1181467-1536x1025.jpg',
+      imgAlt: '',
+    },
+    {
+      title: 'Ar „ChatGPT“ užims mūsų darbo vietas?' ,
+      url: '/#',
+      date: '2023-01-27',
+      imgSrc: 'https://codeacademy.lt/wp-content/uploads/2023/01/pexels-christina-morillo-1181467-1536x1025.jpg',
+      imgAlt: '',
+    }
+  ];
 
-    return (
-      <NewsItem 
-        title={title} 
-        url={url}
-        category={category}
-        date={date}
-        imgSrc={imgSrc}
-        imgAlt={imgAlt}
-      />
-    )
-  })
+  const mainNewsElements = mainNewsData.map((newsData, index) => <NewsItem key={index} data={newsData} />);
+
+  const secondaryNewsElements = secondaryNewsData.map((newsData, index) => <NewsItem key={index} data={newsData} />);
 
   return (
     <div className="news-wrapper">
@@ -49,41 +71,10 @@ const NewsWrapper = ({ title }) => {
       </div>
       
       <div className="secondary-news">
-        <NewsItem 
-          title='Ar „ChatGPT“ užims mūsų darbo vietas?' 
-          url='/#'
-          category='AI & deep learning'
-          date='2023-01-27'
-          imgSrc='https://codeacademy.lt/wp-content/uploads/2023/01/pexels-christina-morillo-1181467-1536x1025.jpg'
-          imgAlt=''
-        />
-        <NewsItem 
-          title='Naujiena' 
-          url='/#'
-          category='AI & deep learning'
-          date='2023-01-27'
-          imgSrc='https://codeacademy.lt/wp-content/uploads/2023/01/pexels-christina-morillo-1181467-1536x1025.jpg'
-          imgAlt=''
-        />
-        <NewsItem 
-          title='Ar „ChatGPT“ užims mūsų darbo vietas?' 
-          url='/#'
-          category='AI & deep learning'
-          date='2023-01-27'
-          imgSrc='https://codeacademy.lt/wp-content/uploads/2023/01/pexels-christina-morillo-1181467-1536x1025.jpg'
-          imgAlt=''
-        />
-        <NewsItem 
-          title='Ar „ChatGPT“ užims mūsų darbo vietas?' 
-          url='/#'
-          category='AI & deep learning'
-          date='2023-01-27'
-          imgSrc='https://codeacademy.lt/wp-content/uploads/2023/01/pexels-christina-morillo-1181467-1536x1025.jpg'
-          imgAlt=''
-        />
+        {secondaryNewsElements}
       </div>
 
-      <LargeButton />
+      <LargeButton url='/#'>Naujienos</LargeButton>
     </div>
   )
 }

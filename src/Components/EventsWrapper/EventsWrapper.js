@@ -11,8 +11,7 @@ const EventsWrapper = () => {
         <EventItem />
       </div>
 
-      {/* <a href="/#" className="button-large">Daugiau</a> */}
-      <LargeButton />
+      <LargeButton url='/#'>Daugiau</LargeButton>
     </div>
   )
 }
