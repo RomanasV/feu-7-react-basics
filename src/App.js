@@ -6,6 +6,7 @@ import Container from './Components/Container/Container';
 import Card from './Components/Card/Card';
 import PageHeader from './Components/PageHeader/PageHeader';
 import NewsPage from './Pages/NewsPage/NewsPage';
+import CounterPage from './Pages/CounterPage/CounterPage';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path='/demo' element={<DemoPage />} />
         <Route path='/contact-us' element={<ContactUsPage />} />
         <Route path='/news' element={<NewsPage />} />
+        <Route path='/counter' element={<CounterPage />} />
         <Route path='*' element={
           <Container>
             <Card>
