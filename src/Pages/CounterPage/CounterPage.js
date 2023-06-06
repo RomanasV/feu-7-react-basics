@@ -15,6 +15,18 @@ const CounterPage = () => {
   const minus5Handler = () => setCount(count - 5);
   const resetHandler = () => setCount(initialValue);
 
+  const inputHandler = (event) => {
+    const inputValue = Number(event.target.value);
+    
+    if (inputValue > 10) {
+      setCount(10);
+    } else if (inputValue < 1) {
+      setCount(1);
+    } else {
+      setCount(inputValue)
+    }
+  }
+
   const getDisplayClass = () => {
     let displayClassName = ''; 
     
@@ -33,7 +45,7 @@ const CounterPage = () => {
     <Container>
       <h3 className={getDisplayClass()}>{count}</h3>
 
-      <input type="number" max="10" min="1" />
+      <input value={count} type="number" max="10" min="1" onChange={inputHandler} />
 
       <button onClick={minus1Handler} disabled={count <= 1}>-1</button>
       <button onClick={minus2Handler} disabled={count <= 2}>-2</button>
