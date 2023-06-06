@@ -6,7 +6,7 @@ const CounterPage = () => {
   const initialValue = 5;
 
   const [count, setCount] = useState(initialValue);
-  const [grades, setGrades] = useState([]);
+  const [grades, setGrades] = useState([1, 5, 6, 7, 8]);
 
   const countButtonHandler = num => setCount(prevState => prevState + num);
   const resetHandler = () => setCount(initialValue);
@@ -25,18 +25,32 @@ const CounterPage = () => {
 
   const addGradeHandler = () => {
     setGrades(prevState => {
-      const newState = [...prevState];
-      newState.push(count);
+      // const newState = [...prevState];
+      // newState.unshift(count);
+
+      const newState = [count, ...prevState];
       return newState;
     });
+
+    setCount(initialValue);
   }
 
-  const getDisplayClass = () => {
+  const removeGradeHandler = (index) => {
+    setGrades(prevState => {
+      // const newState = [...prevState];
+      // newState.splice(index, 1);
+      // return newState;
+
+      return prevState.toSpliced(index, 1);
+    })
+  }
+
+  const getDisplayClass = (item) => {
     let displayClassName = ''; 
     
-    if (count < 4) {
+    if (item < 4) {
       displayClassName = 'red';
-    } else if (count < 7) {
+    } else if (item < 7) {
       displayClassName = 'orange';
     } else {
       displayClassName = 'green';
@@ -47,14 +61,19 @@ const CounterPage = () => {
 
   const gradesList = grades && grades.length > 0 && (
     <ul>
-      {grades.map((grade, index) => <li key={index}>{grade}</li>)}
+      {grades.map((grade, index) => (
+        <li key={index} className={getDisplayClass(grade)}>
+          {grade}
+          <button onClick={() => removeGradeHandler(index)}>x</button>
+        </li>
+      ))}
     </ul>
   );
 
   return (
     <Container>
       <div className="grades-form">
-        <h3 className={getDisplayClass()}>{count}</h3>
+        <h3 className={getDisplayClass(count)}>{count}</h3>
 
         <input value={count} type="number" max="10" min="1" onChange={inputHandler} />
 
