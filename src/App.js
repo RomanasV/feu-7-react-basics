@@ -7,7 +7,7 @@ import Card from './Components/Card/Card';
 import PageHeader from './Components/PageHeader/PageHeader';
 import NewsPage from './Pages/NewsPage/NewsPage';
 import CounterPage from './Pages/CounterPage/CounterPage';
-import ShoppingList from './Pages/ShoppingList/ShoppingList';
+import ShoppingListPage from './Pages/ShoppingListPage/ShoppingListPage';
 
 function App() {
   return (
@@ -23,7 +23,7 @@ function App() {
         <Route path='/contact-us' element={<ContactUsPage />} />
         <Route path='/news' element={<NewsPage />} />
         <Route path='/counter' element={<CounterPage />} />
-        <Route path='/shopping-list' element={<ShoppingList />} />
+        <Route path='/shopping-list' element={<ShoppingListPage />} />
         <Route path='*' element={
           <Container>
             <Card>

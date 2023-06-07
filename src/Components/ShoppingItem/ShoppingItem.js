@@ -1,6 +1,10 @@
-const ShoppingItem = ({ data }) => {
+const ShoppingItem = ({ data, onTaskDone, index }) => {
+  const itemDoneHandler = () => {
+    onTaskDone(index);
+  }
+
   return (
-    <li className={data.done ? 'done' : ''}>{data.title}</li>
+    <li onClick={itemDoneHandler} className={`shopping-item ${data.done ? 'done' : ''}`}>{data.title}</li>
   )
 }
 
