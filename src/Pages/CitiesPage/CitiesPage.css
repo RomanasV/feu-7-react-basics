@@ -1,0 +1,15 @@
+.cities-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.city-item {
+  background-color: white;
+  padding: 20px;
+  width: calc((100% - 15px) / 2);
+}
+
+.odd-cities .city-item:last-child {
+  width: 100%;
+}

@@ -8,6 +8,7 @@ import PageHeader from './Components/PageHeader/PageHeader';
 import NewsPage from './Pages/NewsPage/NewsPage';
 import CounterPage from './Pages/CounterPage/CounterPage';
 import ShoppingListPage from './Pages/ShoppingListPage/ShoppingListPage';
+import CitiesPage from './Pages/CitiesPage/CitiesPage';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <Route path='/news' element={<NewsPage />} />
         <Route path='/counter' element={<CounterPage />} />
         <Route path='/shopping-list' element={<ShoppingListPage />} />
+        <Route path='/cities' element={<CitiesPage />} />
         <Route path='*' element={
           <Container>
             <Card>

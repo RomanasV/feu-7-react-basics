@@ -92,6 +92,8 @@ const ShoppingList = () => {
         <input type="submit" value="Create" />
       </form>
 
+      <input type="checkbox" onClick={(e) => console.log(e.target.value)}></input>
+
       {shoppingListSection}
     </Container>
   )
