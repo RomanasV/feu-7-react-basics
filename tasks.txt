@@ -1,4 +1,4 @@
-1. Naudojant react-router-dom sukurti du routes (puslapius) Shopping List.
+1. Naudojant react-router-dom sukurti Shopping List puslapį.
 1.1. Sukurti navigacijos komponentą, kuriame yra nuorodos, nukreipiančios į šiuos du puslapius (naudoti Link komponentą iš react-router-dom).
 
 2. ShoppingList komponente sukurti masyvą state (naudojant useState) su penkių pirkinių sąrašu. Kiekvienas pirkinys turi būti objektas ir turėti properties:
@@ -7,7 +7,6 @@
 
 3.1. Jeigu pirkinių masyvas neturi nei vieno nario, tai į ekrane parašyti: „Your shopping list is empty."
 3.2. Jeigu pirkinių masyve yra bent vienas narys, tai kiekvieną nario title property išvesti į ekraną panaudojant ShoppingItem komponentą jam paduodant informaciją per props.
-
 
 
 CITIES užduotis:
@@ -35,3 +34,5 @@ CITIES užduotis:
  4.3. Jeigu lankytinų vietų nėra, tai tekstas neturėtų būti atvaizduojamas.
 
 5. Jeigu miestų skaičius nėra porinis, tai paskutinio miesto plotis turi būti 100%, o visų kitų - 50%.
+
+6. Sukurti formą, kurioje galima pridėti naują miestą į miestų state masyvą.
