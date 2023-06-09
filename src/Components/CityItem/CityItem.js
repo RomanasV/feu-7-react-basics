@@ -12,6 +12,8 @@ const CityItem = (props) => {
     capitalDescription = ` ${name} is the capital of ${country}.`;
   }
 
+  const description = `${name} city is located in ${continent}, ${country} and has population of ${population} people.${capitalDescription}`;
+
   let touristAttractionsElement = '';
 
   if (touristAttractions && touristAttractions.length > 0) {
@@ -36,8 +38,7 @@ const CityItem = (props) => {
     <div className={`city-item${capitalClass}`}>
       <h2 className="city-name">{name}{capitalText}</h2>
 
-      <p className="city-description">{name} city is located in {continent}, {country} and has population of {population} people.{capitalDescription}</p>
-
+      <p className="city-description">{description}</p>
       {touristAttractionsElement}
     </div>
   )
