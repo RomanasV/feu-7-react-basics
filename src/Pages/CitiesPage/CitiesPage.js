@@ -1,4 +1,4 @@
-import { forwardRef, useState } from "react";
+import { useState } from "react";
 import Container from "../../Components/Container/Container";
 import CityItem from "../../Components/CityItem/CityItem";
 
@@ -121,13 +121,6 @@ const CitiesPage = () => {
 
   const [formData, setFormData] = useState(initialFormData);
 
-//   const [name, setName] = useState('');
-//   const [population, setPopulation] = useState('');
-//   const [country, setCountry] = useState('');
-//   const [continent, setContinent] = useState('');
-//   const [isCapital, setIsCapital] = useState(false);
-//   const [touristAttractions, setTouristAttractions] = useState('');
-
   const [cities, setCities] = useState(citiesData);
 
   const citiesList = cities.map((city, index) => <CityItem key={index} data={city} />);
@@ -198,36 +191,9 @@ const CitiesPage = () => {
         return {...prevState, touristAttractions: touristAttractionsInput}
     })
   };
-  
-//   const cityNameHandler = (event) => setName(event.target.value);
-//   const cityPopulationHandler = (event) => setPopulation(event.target.valueAsNumber);
-//   const cityCountryHandler = (event) => setCountry(event.target.value);
-//   const cityContinentHandler = (event) => setContinent(event.target.value);
-//   const cityCapitalHandler = (event) => setIsCapital(event.target.checked);
-//   const cityTouristAttractionsHandler = (event) => setTouristAttractions(event.target.value);
 
   const addCityHandler = (event) => {
     event.preventDefault();
-
-    // const newCity = {
-    //     name: name,
-    //     population: population,
-    //     location: {
-    //         continent: continent,
-    //         country: country,
-    //     },
-    //     touristAttractions: touristAttractions.split(',').map(attraction => attraction.trim()),
-    //     isCapital: isCapital,
-    // };
-
-    // setCities(prevState => [newCity, ...prevState]);
-    
-    // setName('');
-    // setPopulation('');
-    // setCountry('');
-    // setContinent('');
-    // setIsCapital(false);
-    // setTouristAttractions('');
 
     const newCity = {...formData, touristAttractions: formData.touristAttractions.split(',').map(attraction => attraction.trim())};
     
