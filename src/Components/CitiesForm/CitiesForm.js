@@ -1,12 +1,29 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-const CitiesForm = ({ onNewCity }) => {
+const CitiesForm = ({ onNewCity, editCityData }) => {
+
   const [name, setName] = useState('');
   const [population, setPopulation] = useState('');
   const [country, setCountry] = useState('');
   const [continent, setContinent] = useState('');
   const [isCapital, setIsCapital] = useState(false);
   const [touristAttractions, setTouristAttractions] = useState('');
+
+  useEffect(() => {
+    if (editCityData) {
+      setName(editCityData.name);
+      setPopulation(editCityData.population);
+      setCountry(editCityData.location.country);
+      setContinent(editCityData.location.continent);
+      setIsCapital(editCityData.isCapital);
+
+      if (editCityData.touristAttractions && editCityData.touristAttractions.length > 0) {
+        setTouristAttractions(editCityData.touristAttractions.join(', '));
+      } else {
+        setTouristAttractions('');
+      }
+    }
+  }, [editCityData])
 
   const cityNameHandler = (event) => setName(event.target.value);
   const cityPopulationHandler = (event) => setPopulation(event.target.valueAsNumber);
@@ -18,6 +35,12 @@ const CitiesForm = ({ onNewCity }) => {
   const addCityHandler = (event) => {
     event.preventDefault();
 
+    let touristAttractionsValue = '';
+    
+    if (touristAttractions && touristAttractions.length > 0) {
+      touristAttractionsValue = touristAttractions.split(',').map(attraction => attraction.trim());
+    }
+
     const newCity = {
         name: name,
         population: population,
@@ -25,7 +48,7 @@ const CitiesForm = ({ onNewCity }) => {
             continent: continent,
             country: country,
         },
-        touristAttractions: touristAttractions.split(',').map(attraction => attraction.trim()),
+        touristAttractions: touristAttractionsValue,
         isCapital: isCapital,
     };
     
@@ -71,7 +94,7 @@ const CitiesForm = ({ onNewCity }) => {
           <textarea id="city-tourist-attractions" name="continent" value={touristAttractions} onChange={cityTouristAttractionsHandler}></textarea>
       </div>
       
-      <input type="submit" id="city-submit" value="Add a city" />
+      <button type="submit" id="city-submit">{editCityData ? 'Edit a city' : 'Add a city'}</button>
     </form>
   )
 }

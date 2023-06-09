@@ -36,3 +36,6 @@ CITIES užduotis:
 5. Jeigu miestų skaičius nėra porinis, tai paskutinio miesto plotis turi būti 100%, o visų kitų - 50%.
 
 6. Sukurti formą, kurioje galima pridėti naują miestą į miestų state masyvą.
+
+BONUS:
+1. Prie formos pridėti bent 5-ių checkbox elementų grupę (features), kuriuose galima pasirinkti papildomus miesto privalumus, pvz. "Beach", "Metro", "Hiking trails" ir pan.

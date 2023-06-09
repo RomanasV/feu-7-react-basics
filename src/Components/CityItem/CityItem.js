@@ -1,4 +1,5 @@
 const CityItem = (props) => {
+  const { onEditCity, index, onRemoveCity } = props;
   const { name, isCapital, population, touristAttractions, location } = props.data;
   const { continent, country } = location;
 
@@ -40,6 +41,9 @@ const CityItem = (props) => {
 
       <p className="city-description">{description}</p>
       {touristAttractionsElement}
+
+      <button onClick={() => onEditCity(index)}>Edit</button>
+      <button onClick={() => onRemoveCity(index)}>Remove</button>
     </div>
   )
 }

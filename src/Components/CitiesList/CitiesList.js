@@ -1,7 +1,7 @@
 import CityItem from "../../Components/CityItem/CityItem";
 
-const CitiesList = ({ citiesData }) => {
-  const citiesList = citiesData.map((city, index) => <CityItem key={index} data={city} />);
+const CitiesList = ({ citiesData, onEditCity, onRemoveCity }) => {
+  const citiesList = citiesData.map((city, index) => <CityItem onEditCity={onEditCity} index={index} key={index} data={city} onRemoveCity={onRemoveCity} />);
 
   const oddCitiesClass = citiesData.length % 2 !== 0 ? ' odd-cities' : '';
   return (

@@ -110,13 +110,31 @@ const CitiesPage = () => {
   ];
 
   const [cities, setCities] = useState(citiesData);
-  const citiesUpdateHandler = (city) => setCities(prevState => [city, ...prevState]);
+  const [editCityIndex, setEditCityIndex] = useState(null);
+  const [editCity, setEditCity] = useState(null);
+
+  const citiesUpdateHandler = (city) => {
+    if (editCity) {
+        setCities(prevState => prevState.toSpliced(editCityIndex, 1, city));
+        setEditCity(null);
+        setEditCityIndex(null);
+    } else {
+        setCities(prevState => [city, ...prevState])
+    }
+  };
+
+  const editCityHandler = (cityIndex) => {
+    setEditCity(cities[cityIndex]);
+    setEditCityIndex(cityIndex);
+  }
+
+  const removeCityHandler = (cityIndex) => setCities(prevState => prevState.toSpliced(cityIndex, 1));
 
   return (
     <Container>
-      <CitiesForm onNewCity={citiesUpdateHandler} />
+      <CitiesForm editCityData={editCity} onNewCity={citiesUpdateHandler} />
       
-      <CitiesList citiesData={cities} />
+      <CitiesList onEditCity={editCityHandler} onRemoveCity={removeCityHandler} citiesData={cities} />
     </Container>
   )
 }
