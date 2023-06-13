@@ -63,3 +63,5 @@ TODO UŽDUOTIS:
 6. Pridėti galimybę redaguoti užduotį. 
 6.1. Redaguojant užduotį id ir sukūrimo data lieka tokie patys.
 6.2. Redaguojant užduotį pridėti naują property, kuri nurodo kada buvo modifikuota užduotis. Redagavimo datą atvaizduoti ekrane.
+
+7. Padaryti jog atliktos užduotys būtų atvaizduojamos pabaigoje, o dar neatliktos - pradžioje.
