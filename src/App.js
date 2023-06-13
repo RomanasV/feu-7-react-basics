@@ -9,6 +9,7 @@ import NewsPage from './Pages/NewsPage/NewsPage';
 import CounterPage from './Pages/CounterPage/CounterPage';
 import ShoppingListPage from './Pages/ShoppingListPage/ShoppingListPage';
 import CitiesPage from './Pages/CitiesPage/CitiesPage';
+import TodoPage from './Pages/TodoPage/TodoPage';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         <Route path='/counter' element={<CounterPage />} />
         <Route path='/shopping-list' element={<ShoppingListPage />} />
         <Route path='/cities' element={<CitiesPage />} />
+        <Route path='/todo' element={<TodoPage />} />
         <Route path='*' element={
           <Container>
             <Card>

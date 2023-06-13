@@ -33,6 +33,10 @@ const PageHeader = () => {
         <li className='nav-item'>
           <NavLink to='/cities' className='nav-link'>Cities Page</NavLink>
         </li>
+
+        <li className='nav-item'>
+          <NavLink to='/todo' className='nav-link'>Todo Page</NavLink>
+        </li>
       </ul>
     </nav>
   )
