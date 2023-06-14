@@ -10,6 +10,7 @@ import CounterPage from './Pages/CounterPage/CounterPage';
 import ShoppingListPage from './Pages/ShoppingListPage/ShoppingListPage';
 import CitiesPage from './Pages/CitiesPage/CitiesPage';
 import TodoPage from './Pages/TodoPage/TodoPage';
+import ChuckNorrisPage from './Pages/ChuckNorrisPage/ChuckNorrisPage';
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
         <Route path='/shopping-list' element={<ShoppingListPage />} />
         <Route path='/cities' element={<CitiesPage />} />
         <Route path='/todo' element={<TodoPage />} />
+        <Route path='/api/chuck-norris' element={<ChuckNorrisPage />} />
         <Route path='*' element={
           <Container>
             <Card>
