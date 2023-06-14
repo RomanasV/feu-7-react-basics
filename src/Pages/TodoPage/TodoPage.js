@@ -1,4 +1,6 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import { v4 as uuid } from 'uuid';
+
 import Container from '../../Components/Container/Container';
 import TodoList from '../../Components/TodoList/TodoList';
 import TodoForm from '../../Components/TodoForm/TodoForm';
@@ -6,28 +8,31 @@ import TodoForm from '../../Components/TodoForm/TodoForm';
 const TodoPage = () => {
   const todosList = [
     {
-      id: Math.random(),
+      id: uuid(),
       date: '2023-06-13',
       title: 'Task 1',
       description: 'Description 1',
       done: false,
       dueDate: '2023-07-10',
+      updateDate: null,
     },
     {
-      id: Math.random(),
+      id: uuid(),
       date: '2023-06-14',
       title: 'Task 2',
       description: 'Description 2',
       done: true,
       dueDate: '2023-07-01',
+      updateDate: null,
     },
     {
-      id: Math.random(),
+      id: uuid(),
       date: '2023-06-20',
       title: 'Task 3',
       description: 'Description 3',
       done: false,
       dueDate: '2023-10-10',
+      updateDate: null,
     },
   ];
 
@@ -36,7 +41,13 @@ const TodoPage = () => {
   
   const newTodoHandler = todo => {
     if (editTodo) {
-      console.log(todo);
+      setTodos(prevState => {
+        const editId = todo.id;
+        const editIndex = todos.findIndex(todoItem => todoItem.id === editId);
+        const newState = prevState.toSpliced(editIndex, 1, todo);
+
+        return newState;
+      });
 
       setEditTodo(null)
     } else {
