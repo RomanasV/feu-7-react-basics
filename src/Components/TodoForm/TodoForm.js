@@ -1,9 +1,17 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-const TodoForm = ({ onNewTask }) => {
+const TodoForm = ({ onNewTask, editData }) => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [dueDate, setDueDate] = useState('');
+
+  useEffect(() => {
+    if (editData) {
+      setTitle(editData.title);
+      setDescription(editData.description);
+      setDueDate(editData.dueDate);
+    }
+  }, [editData]);
 
   const titleInputHandler = event => setTitle(event.target.value);
   const descriptionInputHandler = (event) => setDescription(event.target.value);
@@ -22,13 +30,26 @@ const TodoForm = ({ onNewTask }) => {
 
     const fullDate = date.toISOString().slice(0, 10);
 
-    const newTodo = {
-      id: Math.random(),
-      date: fullDate,
-      title,
-      description,
-      done: false,
-      dueDate,
+    let newTodo = {};
+
+    if (editData) {
+      newTodo = {
+        id: editData.id,
+        date: editData.date,
+        title,
+        description,
+        done: editData.done,
+        dueDate,
+      }
+    } else {
+      newTodo = {
+        id: Math.random(),
+        date: fullDate,
+        title,
+        description,
+        done: false,
+        dueDate,
+      }
     }
 
     onNewTask(newTodo);
@@ -53,7 +74,7 @@ const TodoForm = ({ onNewTask }) => {
       </div>
       
       <div className='form-control'>
-        <input type='submit' id='todo-submit' name='todo-submit' value='Create new task' />
+        <button type='submit' id='todo-submit' name='todo-submit'>{editData ? 'Edit task' : 'Create new task'}</button>
       </div>
     </form>
   )

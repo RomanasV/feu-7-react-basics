@@ -32,7 +32,17 @@ const TodoPage = () => {
   ];
 
   const [todos, setTodos] = useState(todosList);
-  const newTodoHandler = newTodo => setTodos(prevState => [newTodo, ...prevState]);
+  const [editTodo, setEditTodo] = useState(null);
+  
+  const newTodoHandler = todo => {
+    if (editTodo) {
+      console.log(todo);
+
+      setEditTodo(null)
+    } else {
+      setTodos(prevState => [todo, ...prevState]);
+    }
+  };
 
   const doneTodoHandler = (id) => {
     const clickedTodoIndex = todos.findIndex((todo) => todo.id === id);
@@ -57,12 +67,18 @@ const TodoPage = () => {
     });
   }
 
+  const editTodoHandler = (idToEdit) => {
+    const selectedEditTodo = todos.find(todo => todo.id === idToEdit);
+
+    setEditTodo(selectedEditTodo);
+  }
+
   return (
     <Container>
       <h1>Todos:</h1>
-      <TodoForm onNewTask={newTodoHandler} />
+      <TodoForm editData={editTodo} onNewTask={newTodoHandler} />
 
-      <TodoList data={todos} onTaskDone={doneTodoHandler} onTaskRemove={removeTodoHandler} />
+      <TodoList data={todos} onTaskDone={doneTodoHandler} onTaskRemove={removeTodoHandler} onTaskEdit={editTodoHandler} />
     </Container>
   )
 }

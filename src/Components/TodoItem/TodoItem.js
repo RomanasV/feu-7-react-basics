@@ -1,6 +1,6 @@
 import React from 'react'
 
-const TodoItem = ({ todoData, onTaskDone, onTaskRemove }) => {
+const TodoItem = ({ todoData, onTaskDone, onTaskRemove, onTaskEdit }) => {
   const { date, description, done, dueDate, id, title } = todoData;
 
   return (
@@ -23,6 +23,7 @@ const TodoItem = ({ todoData, onTaskDone, onTaskRemove }) => {
       </div>
 
       <button onClick={() => onTaskRemove(id)}>Remove</button>
+      <button onClick={() => onTaskEdit(id)}>Edit a task</button>
     </div>
   )
 }
