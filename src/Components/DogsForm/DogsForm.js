@@ -35,6 +35,10 @@ const DogsForm = ({ onBreedSelect, selectedBreed }) => {
     return <option key={uuid()} value={mainBreed}>{mainBreed}</option>
   })
 
+  if (breeds.length === 0) {
+    return '';
+  }
+
   return (
     <form>
       <select value={selectedBreed} onChange={(e) => onBreedSelect(e.target.value)}>
