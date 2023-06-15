@@ -11,6 +11,7 @@ import ShoppingListPage from './Pages/ShoppingListPage/ShoppingListPage';
 import CitiesPage from './Pages/CitiesPage/CitiesPage';
 import TodoPage from './Pages/TodoPage/TodoPage';
 import ChuckNorrisPage from './Pages/ChuckNorrisPage/ChuckNorrisPage';
+import DogsPage from './Pages/DogsPage/DogsPage';
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
         <Route path='/cities' element={<CitiesPage />} />
         <Route path='/todo' element={<TodoPage />} />
         <Route path='/api/chuck-norris' element={<ChuckNorrisPage />} />
+        <Route path='/api/dogs' element={<DogsPage />} />
         <Route path='*' element={
           <Container>
             <Card>
