@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Container from "../../Components/Container/Container";
 import axios from "axios";
+import { GridLoader } from "react-spinners";
 
 const ChuckNorrisPage = () => {
   const [joke, setJoke] = useState('');
@@ -16,7 +17,7 @@ const ChuckNorrisPage = () => {
 
     async function fetchCategoriesData() {
       const res = await axios.get('https://api.chucknorris.io/jokes/categories');
-      setCategories(res.data)
+      setCategories(res.data);
     }
 
     fetchCategoriesData();
@@ -46,7 +47,6 @@ const ChuckNorrisPage = () => {
     <Container>
       {(categories.length > 0 && joke) ? (
         <div>
-          
           <form>
             <select onChange={categorySelectHandler} defaultValue=''>
               <option value='' disabled>--- Select category ---</option>
@@ -59,7 +59,7 @@ const ChuckNorrisPage = () => {
           <button onClick={randomJokeHandler}>Get a random Joke</button>
 
         </div>
-      ) : 'Loading...'}
+      ) : <GridLoader color="#341881" size={20} />}
 
     </Container>
   )
