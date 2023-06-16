@@ -1,10 +1,26 @@
 import { useEffect, useState } from "react";
 import Container from "../../Components/Container/Container";
+import axios from "axios";
 
 const ChuckNorrisPage = () => {
   const [joke, setJoke] = useState('');
   const [categories, setCategories] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState('');
+
+  useEffect(() => {
+    // async function fetchCategoriesData() {
+    //   const res = await fetch('https://api.chucknorris.io/jokes/categories')
+    //   const categoriesData = await res.json();
+    //   setCategories(categoriesData)
+    // }
+
+    async function fetchCategoriesData() {
+      const res = await axios.get('https://api.chucknorris.io/jokes/categories');
+      setCategories(res.data)
+    }
+
+    fetchCategoriesData();
+  }, []);
 
   useEffect(() => {
     const categoryParam = selectedCategory ? `?category=${selectedCategory}` : '';
@@ -15,14 +31,6 @@ const ChuckNorrisPage = () => {
         setJoke(data.value);
       })
   }, [selectedCategory]);
-
-  useEffect(() => {
-    fetch('https://api.chucknorris.io/jokes/categories')
-      .then(res => res.json())
-      .then(categoriesData => {
-        setCategories(categoriesData);
-      })
-  }, []);
 
   const categorySelectHandler = (event) => setSelectedCategory(event.target.value);
 

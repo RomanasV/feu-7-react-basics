@@ -7,37 +7,32 @@ import axios from 'axios';
 const AiPage = () => {
   const [personData, setPersonData] = useState(null);
 
-  axios.get('https://api.agify.io?name=john').then(res => console.log(res.data));
+  // const nameFormHandler = async name => {
+  //   const ageRes = await fetch('https://api.agify.io?name=' + name);
+  //   const ageData = await ageRes.json();
+  //   const age = ageData.age;
 
-  const nameFormHandler = name => {
-    setPersonData(prevState => {
-      return {...prevState, name};
-    })
+  //   const genderRes = await fetch('https://api.genderize.io?name=' + name);
+  //   const genderData = await genderRes.json();
+  //   const gender = genderData.gender;
 
-    fetch('https://api.agify.io?name=' + name)
-      .then(res => res.json())
-      .then(data => {
-        console.log(data.age);
-        setPersonData(prevState => {
-          return {...prevState, age: data.age};
-        })
-      })
+  //   const nationalityRes = await fetch('https://api.nationalize.io?name=' + name);
+  //   const nationalityData = await nationalityRes.json();
+  //   const nationality = nationalityData.country[0].country_id;
 
-    fetch('https://api.genderize.io?name=' + name)
-      .then(res => res.json())
-      .then(data => {
-        setPersonData(prevState => {
-          return {...prevState, gender: data.gender};
-        })
-      })
+  //   setPersonData({ name, age, gender, nationality });
+  // }
 
-    fetch('https://api.nationalize.io?name=' + name)
-      .then(res => res.json())
-      .then(data => {
-        setPersonData(prevState => {
-          return {...prevState, nationality: data.country[0].country_id};
-        })
-      })
+  const nameFormHandler = async name => {
+    const ageRes = await axios.get('https://api.agify.io?name=' + name);
+    const genderRes = await axios.get('https://api.genderize.io?name=' + name);
+    const nationalityRes = await axios.get('https://api.nationalize.io?name=' + name);
+    
+    const age = ageRes.data.age;
+    const gender = genderRes.data.gender;
+    const nationality = nationalityRes.data.country[0].country_id;
+
+    setPersonData({ name, age, gender, nationality });
   }
 
   return (

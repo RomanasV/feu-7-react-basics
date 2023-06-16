@@ -8,6 +8,7 @@ const AiForm = ({ onNameSubmit }) => {
   const formSubmitHandler = event => {
     event.preventDefault();
     onNameSubmit(name);
+    setName('');
   }
 
   return (
