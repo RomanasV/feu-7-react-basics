@@ -1,8 +1,9 @@
 const AiOutput = ({ data }) => {
+  if (!data) {
+    return '';
+  }
+
   const { age, gender, nationality, name } = data;
-  console.log(age);
-  console.log(gender);
-  console.log(nationality);
 
   return (
     <>

@@ -2,9 +2,12 @@ import { useState } from 'react';
 import AiForm from '../../Components/AiForm/AiForm';
 import AiOutput from '../../Components/AiOutput/AiOutput';
 import Container from '../../Components/Container/Container';
+import axios from 'axios';
 
 const AiPage = () => {
   const [personData, setPersonData] = useState(null);
+
+  axios.get('https://api.agify.io?name=john').then(res => console.log(res.data));
 
   const nameFormHandler = name => {
     setPersonData(prevState => {
