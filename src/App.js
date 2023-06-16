@@ -12,6 +12,8 @@ import CitiesPage from './Pages/CitiesPage/CitiesPage';
 import TodoPage from './Pages/TodoPage/TodoPage';
 import ChuckNorrisPage from './Pages/ChuckNorrisPage/ChuckNorrisPage';
 import DogsPage from './Pages/DogsPage/DogsPage';
+import AiPage from './Pages/AiPage/AiPage';
+import ApiPage from './Pages/ApiPage/ApiPage';
 
 function App() {
   return (
@@ -30,8 +32,11 @@ function App() {
         <Route path='/shopping-list' element={<ShoppingListPage />} />
         <Route path='/cities' element={<CitiesPage />} />
         <Route path='/todo' element={<TodoPage />} />
+        <Route path='/api' element={<ApiPage />} />
         <Route path='/api/chuck-norris' element={<ChuckNorrisPage />} />
         <Route path='/api/dogs' element={<DogsPage />} />
+        <Route path='/api/ai' element={<AiPage />} />
+
         <Route path='*' element={
           <Container>
             <Card>

@@ -39,12 +39,25 @@ const PageHeader = () => {
         </li>
 
         <li className='nav-item'>
-          <NavLink to='/api/chuck-norris' className='nav-link'>Chuck API Page</NavLink>
+          
+          <NavLink to='/api' className='nav-link'>API Projects Page</NavLink>
+
+          <ul className='inner-menu'>
+            <li className='nav-item'>
+              <NavLink to='/api/chuck-norris' className='nav-link'>Chuck API Page</NavLink>
+            </li>
+
+            <li className='nav-item'>
+              <NavLink to='/api/dogs' className='nav-link'>Dogs API Page</NavLink>
+            </li>
+
+            <li className='nav-item'>
+              <NavLink to='/api/ai' className='nav-link'>AI API Page</NavLink>
+            </li>
+          </ul>
         </li>
 
-        <li className='nav-item'>
-          <NavLink to='/api/dogs' className='nav-link'>Dogs API Page</NavLink>
-        </li>
+
       </ul>
     </nav>
   )
