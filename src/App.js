@@ -14,6 +14,8 @@ import ChuckNorrisPage from './Pages/ChuckNorrisPage/ChuckNorrisPage';
 import DogsPage from './Pages/DogsPage/DogsPage';
 import AiPage from './Pages/AiPage/AiPage';
 import ApiPage from './Pages/ApiPage/ApiPage';
+import UsersPage from './Pages/UsersPage/UsersPage';
+import UserPage from './Pages/UserPage/UserPage';
 
 function App() {
   return (
@@ -36,6 +38,8 @@ function App() {
         <Route path='/api/chuck-norris' element={<ChuckNorrisPage />} />
         <Route path='/api/dogs' element={<DogsPage />} />
         <Route path='/api/ai' element={<AiPage />} />
+        <Route path='/json/users' element={<UsersPage />} />
+        <Route path='/json/users/:id' element={<UserPage />} />
 
         <Route path='*' element={
           <Container>

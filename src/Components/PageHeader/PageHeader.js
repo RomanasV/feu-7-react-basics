@@ -57,6 +57,21 @@ const PageHeader = () => {
           </ul>
         </li>
 
+        <li className='nav-item'>
+          
+          <NavLink to='/api' className='nav-link'>JSON API</NavLink>
+
+          <ul className='inner-menu'>
+            <li className='nav-item'>
+              <NavLink to='/json/users' className='nav-link'>Users</NavLink>
+            </li>
+
+            <li className='nav-item'>
+              <NavLink to='/json/posts' className='nav-link'>Posts</NavLink>
+            </li>
+          </ul>
+        </li>
+
 
       </ul>
     </nav>
