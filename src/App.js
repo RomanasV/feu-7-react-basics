@@ -19,6 +19,7 @@ import UserPage from './Pages/UserPage/UserPage';
 import PostsPage from './Pages/PostsPage/PostsPage';
 import PostPage from './Pages/PostPage/PostPage';
 import CreatePost from './Pages/CreatePost/CreatePost';
+import EditPostPage from './Pages/EditPostPage/EditPostPage';
 
 function App() {
   return (
@@ -46,6 +47,7 @@ function App() {
         <Route path='/json/posts' element={<PostsPage />} />
         <Route path='/json/posts/:id' element={<PostPage />} />
         <Route path='/json/posts/create' element={<CreatePost />} />
+        <Route path='/json/posts/edit/:id' element={<EditPostPage />} />
 
         <Route path='*' element={
           <Container>

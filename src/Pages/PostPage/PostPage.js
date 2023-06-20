@@ -36,6 +36,7 @@ const PostPage = () => {
           <>
             <h1>{post.title}</h1>
             <button onClick={deleteHandler}>Delete Post</button>
+            <Link to={`/json/posts/edit/${post.id}`}>Edit Post</Link>
             <p>{post.body}</p>
             <span>Author: {post.user.name}</span>
           </>
