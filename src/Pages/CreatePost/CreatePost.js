@@ -67,7 +67,9 @@ const CreatePost = () => {
     };
 
     axios.post(`${API_URL}/posts`, newPost)
-      .then(res => console.log(res.data));
+      .then(res => {
+        console.log(res.data)
+      });
   }
 
   return (

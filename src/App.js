@@ -20,6 +20,7 @@ import PostsPage from './Pages/PostsPage/PostsPage';
 import PostPage from './Pages/PostPage/PostPage';
 import CreatePost from './Pages/CreatePost/CreatePost';
 import EditPostPage from './Pages/EditPostPage/EditPostPage';
+import CreateUserPage from './Pages/CreateUserPage/CreateUserPage';
 
 function App() {
   return (
@@ -44,6 +45,7 @@ function App() {
         <Route path='/api/ai' element={<AiPage />} />
         <Route path='/json/users' element={<UsersPage />} />
         <Route path='/json/users/:id' element={<UserPage />} />
+        <Route path='/json/users/create' element={<CreateUserPage />} />
         <Route path='/json/posts' element={<PostsPage />} />
         <Route path='/json/posts/:id' element={<PostPage />} />
         <Route path='/json/posts/create' element={<CreatePost />} />

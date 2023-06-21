@@ -33,13 +33,14 @@ const UsersPage = () => {
 
   return (
     <Container>
+      <Link to='/json/users/create'>Create New User</Link>
       <h1>Users:</h1>
       <ul>
         {users.map(user => (
 
           <li key={user.id}>
             <Link to={`/json/users/${user.id}`}>
-              {user.name}
+              {user.id}. {user.name}
             </Link>
           </li>
 
