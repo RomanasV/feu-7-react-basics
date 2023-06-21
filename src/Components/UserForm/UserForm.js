@@ -12,23 +12,52 @@ const UserForm = ({ onUserFormSubmit, initialData }) => {
   const cityHandler = event => setCity(event.target.value);
 
   useEffect(() => {
-    setName(initialData.name);
-    setUsername(initialData.username);
-    setEmail(initialData.email);
-    setCity(initialData.address.city);
+    if (initialData) {
+      setName(initialData.name);
+      setUsername(initialData.username);
+      setEmail(initialData.email);
+      setCity(initialData.address.city);
+    }
   }, [initialData]);
 
   const formSubmitHandler = (event) => {
     event.preventDefault();
 
-    const address = {...initialData.address, city};
+    let userObj = {};
 
-    const userObj = {
-      ...initialData,
-      name,
-      username,
-      email,
-      address,
+    if (initialData) {
+      const address = {...initialData.address, city};
+      
+      userObj = {
+        ...initialData,
+        name,
+        username,
+        email,
+        address,
+      }
+    } else {
+      userObj = {
+        name,
+        username,
+        email,
+        address: {
+          street: "Kulas Light",
+          suite: "Apt. 556",
+          city,
+          zipcode: "92998-3874",
+          geo: {
+            lat: "-37.3159",
+            lng: "81.1496"
+          }
+        },
+        phone: "1-770-736-8031 x56442",
+        website: "hildegard.org",
+        company: {
+          name: "Romaguera-Crona",
+          catchPhrase: "Multi-layered client-server neural-net",
+          bs: "harness real-time e-markets"
+        }
+      }
     }
 
     onUserFormSubmit(userObj);
