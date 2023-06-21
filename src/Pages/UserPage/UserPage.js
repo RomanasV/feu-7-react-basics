@@ -53,12 +53,14 @@ const UserPage = () => {
     <div>
       <h1>{user.name} info:</h1>
       <button onClick={removeUserHandler}>Delete</button>
+      <Link to={`/json/users/edit/${user.id}`}>Edit</Link>
 
       {errorMessage && <p style={{color: 'red'}}>{errorMessage}</p>}
 
       <p>Username: {user.username}</p>
       <p>Email: {user.email}</p>
       <p>Phone: {user.phone}</p>
+      <p>City: {user.address.city}</p>
     </div>
   );
 
