@@ -4,8 +4,6 @@ import ShoppingItem from "../../Components/ShoppingItem/ShoppingItem";
 
 import styles from './ShoppingListPage.module.scss';
 
-console.log(styles)
-
 // import styled from 'styled-components';
 
 // const Button = styled.button`

@@ -3,6 +3,7 @@ import Container from "../../Components/Container/Container";
 import { useEffect, useState } from "react";
 import { API_URL } from "../../config";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 const UserPage = () => {
   // const params = useParams();
@@ -38,8 +39,14 @@ const UserPage = () => {
   
   const removeUserHandler = () => {
     axios.delete(`${API_URL}/users/${id}`)
-      .then(res => setUserDeleted(true))
-      .catch(err => setErrorMessage(err.message));
+      .then(res => {
+        setUserDeleted(true)
+        toast.success('User was deleted...');
+      })
+      .catch(err => {
+        setErrorMessage(err.message);
+        toast.error(err.message);
+      });
   }
 
   const deletedUserMessage = (
@@ -55,7 +62,7 @@ const UserPage = () => {
       <button onClick={removeUserHandler}>Delete</button>
       <Link to={`/json/users/edit/${user.id}`}>Edit</Link>
 
-      {errorMessage && <p style={{color: 'red'}}>{errorMessage}</p>}
+      {/* {errorMessage && <p style={{color: 'red'}}>{errorMessage}</p>} */}
 
       <p>Username: {user.username}</p>
       <p>Email: {user.email}</p>

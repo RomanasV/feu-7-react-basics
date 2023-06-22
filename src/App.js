@@ -22,6 +22,9 @@ import CreatePost from './Pages/CreatePost/CreatePost';
 import EditPostPage from './Pages/EditPostPage/EditPostPage';
 import CreateUserPage from './Pages/CreateUserPage/CreateUserPage';
 import EditUserPage from './Pages/EditUserPage/EditUserPage';
+import { ToastContainer } from 'react-toastify';
+
+import 'react-toastify/dist/ReactToastify.min.css';
 
 function App() {
   return (
@@ -62,7 +65,19 @@ function App() {
           </Container>
         } />
       </Routes>
-      
+
+      <ToastContainer 
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={true}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover={false}
+        theme="colored"
+      />
     </div>
   );
 }
