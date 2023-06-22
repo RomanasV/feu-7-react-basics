@@ -1,54 +1,54 @@
 import { useState } from "react";
 import Container from "../../Components/Container/Container";
-
-import './ShoppingListPage.scss';
 import ShoppingItem from "../../Components/ShoppingItem/ShoppingItem";
 
-import styled from 'styled-components';
+import styles from './ShoppingListPage.module.css';
 
-const Button = styled.button`
-  background-color: bisque;
-  font-size: 20px;
-  border: 2px solid chocolate;
-  padding: 10px 15px;
-  border-radius: 10px;
-  color: chocolate;
-  font-weight: bold;
-  cursor: pointer;
-  margin-top: 10px;
-  transition: background-color 0.3s, color 0.3s;
+// import styled from 'styled-components';
 
-  &:hover {
-    background-color: chocolate;
-    color: bisque;
-  }
-`;
+// const Button = styled.button`
+//   background-color: bisque;
+//   font-size: 20px;
+//   border: 2px solid chocolate;
+//   padding: 10px 15px;
+//   border-radius: 10px;
+//   color: chocolate;
+//   font-weight: bold;
+//   cursor: pointer;
+//   margin-top: 10px;
+//   transition: background-color 0.3s, color 0.3s;
 
-const FormControl = styled.div`
-  border: 2px solid ${props => props.invalid ? 'red' : props.colorTheme};
-  display: flex;
-  flex-direction: column;
-  row-gap: 10px;
-  text-align: center;
-  padding: 20px;
-  background-color: rgba(255, 255, 255, 0.611);
-  border-radius: 20px;
+//   &:hover {
+//     background-color: chocolate;
+//     color: bisque;
+//   }
+// `;
 
-  & label {
-    font-size: 25px;
-    color: ${props => props.invalid ? 'red' : props.colorTheme};
-  }
+// const FormControl = styled.div`
+//   border: 2px solid ${props => props.invalid ? 'red' : props.colorTheme};
+//   display: flex;
+//   flex-direction: column;
+//   row-gap: 10px;
+//   text-align: center;
+//   padding: 20px;
+//   background-color: rgba(255, 255, 255, 0.611);
+//   border-radius: 20px;
 
-  & input {
-    background-color: ${props => props.invalid ? 'pink' : 'beige'};
-    border-color: ${props => props.invalid ? 'red' : props.colorTheme};
-    font-size: 20px;
+//   & label {
+//     font-size: 25px;
+//     color: ${props => props.invalid ? 'red' : props.colorTheme};
+//   }
 
-    &:focus {
-      background-color: bisque;
-    }
-  }
-`;
+//   & input {
+//     background-color: ${props => props.invalid ? 'pink' : 'beige'};
+//     border-color: ${props => props.invalid ? 'red' : props.colorTheme};
+//     font-size: 20px;
+
+//     &:focus {
+//       background-color: bisque;
+//     }
+//   }
+// `;
 
 const ShoppingList = () => {
   const initialShoppingList = [
@@ -137,7 +137,9 @@ const ShoppingList = () => {
   if (shoppingList && shoppingList.length > 0) {
     shoppingListSection = (
       <ul>
-        {shoppingList.map((item, index) => <ShoppingItem key={index} index={index} data={item} onTaskDone={itemDoneHandler} />)}
+        {shoppingList.map((item, index) => {
+          return <ShoppingItem classes={`${styles.shoppingItem} ${item.done ? styles.done : ''}`} key={index} index={index} data={item} onTaskDone={itemDoneHandler} />
+          })}
       </ul>
     )
   }
@@ -149,14 +151,13 @@ const ShoppingList = () => {
 
         <form onSubmit={newItemHandler}>
           
-          
-          <FormControl colorTheme='chocolate' invalid={!isValid}>
+          <div className={`${styles['form-control']} ${!isValid ? styles.invalid : ''}`}>
             <label htmlFor="shopping-item">New Item:</label>
             <input type="text" id="shopping-item" name="shopping-item" value={newItem} onChange={itemInputHandler} />
-          </FormControl>
+          </div>
 
           <div>
-            <Button className="button" type="submit">Create</Button>
+            <button className={styles.button} type="submit">Create</button>
           </div>
         </form>
 

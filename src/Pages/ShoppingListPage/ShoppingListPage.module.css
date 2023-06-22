@@ -1,0 +1,61 @@
+.shoppingItem {
+  cursor: pointer;
+}
+
+.shoppingItem.done {
+  text-decoration: line-through;
+  opacity: 0.5;
+}
+
+.form-control {
+  border: 2px solid chocolate;
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  text-align: center;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.611);
+  border-radius: 20px;
+}
+
+.form-control input {
+  background-color: beige;
+  font-size: 20px;
+}
+
+.form-control input:focus {
+  background-color: bisque;
+}
+
+
+.form-control label {
+  font-size: 25px;
+  color: chocolate;
+}
+
+.form-control.invalid label {
+  color: red;
+}
+
+.form-control.invalid input {
+  border-color: red;
+  background-color: pink;
+}
+  
+.button {
+  background-color: bisque;
+  font-size: 20px;
+  border: 2px solid chocolate;
+  padding: 10px 15px;
+  border-radius: 10px;
+  color: chocolate;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.button:hover {
+  background-color: chocolate;
+  color: bisque;
+}
