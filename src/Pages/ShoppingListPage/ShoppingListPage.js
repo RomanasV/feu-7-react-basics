@@ -25,7 +25,7 @@ const Button = styled.button`
 `;
 
 const FormControl = styled.div`
-  border: 2px solid chocolate;
+  border: 2px solid ${props => props.invalid ? 'red' : props.colorTheme};
   display: flex;
   flex-direction: column;
   row-gap: 10px;
@@ -36,26 +36,16 @@ const FormControl = styled.div`
 
   & label {
     font-size: 25px;
-    color: chocolate;
+    color: ${props => props.invalid ? 'red' : props.colorTheme};
   }
 
   & input {
-    background-color: beige;
+    background-color: ${props => props.invalid ? 'pink' : 'beige'};
+    border-color: ${props => props.invalid ? 'red' : props.colorTheme};
     font-size: 20px;
 
     &:focus {
       background-color: bisque;
-    }
-  }
-
-  &.invalid {
-    label {
-      color: red;
-    }
-
-    input {
-      border-color: red;
-      background-color: pink;
     }
   }
 `;
@@ -160,7 +150,7 @@ const ShoppingList = () => {
         <form onSubmit={newItemHandler}>
           
           
-          <FormControl className={`form-control ${!isValid ? 'invalid' : ''}`}>
+          <FormControl colorTheme='chocolate' invalid={!isValid}>
             <label htmlFor="shopping-item">New Item:</label>
             <input type="text" id="shopping-item" name="shopping-item" value={newItem} onChange={itemInputHandler} />
           </FormControl>
