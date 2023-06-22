@@ -2,7 +2,9 @@ import { useState } from "react";
 import Container from "../../Components/Container/Container";
 import ShoppingItem from "../../Components/ShoppingItem/ShoppingItem";
 
-import styles from './ShoppingListPage.module.css';
+import styles from './ShoppingListPage.module.scss';
+
+console.log(styles)
 
 // import styled from 'styled-components';
 
