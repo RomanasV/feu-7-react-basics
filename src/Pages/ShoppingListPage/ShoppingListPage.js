@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Container from "../../Components/Container/Container";
 
-import './ShoppingListPage.css';
+import './ShoppingListPage.scss';
 import ShoppingItem from "../../Components/ShoppingItem/ShoppingItem";
 
 const ShoppingList = () => {
@@ -30,6 +30,8 @@ const ShoppingList = () => {
 
   const [shoppingList, setShoppingList] = useState(initialShoppingList);
   const [newItem, setNewItem] = useState('');
+
+  const [isValid, setIsValid] = useState(true);
   
   const itemDoneHandler = (index) => {
     if (index === undefined) {
@@ -53,6 +55,11 @@ const ShoppingList = () => {
   const newItemHandler = (event) => {
     event.preventDefault();
 
+    if (newItem.trim().length === 0) {
+      setIsValid(false);
+      return;
+    }
+
     // setShoppingList(prevState => [{ title: newItem, done: false }, ...prevState]);
 
     setShoppingList(prevState => {
@@ -66,6 +73,7 @@ const ShoppingList = () => {
     });
     
     setNewItem('');
+    setIsValid(true);
   }
 
   const itemInputHandler = (event) => setNewItem(event.target.value);
@@ -82,20 +90,27 @@ const ShoppingList = () => {
   }
 
   return (
-    <Container>
-      {/* <button onClick={() => itemDoneHandler(0)}>Click</button> */}
+    <div id="shopping-list-page">
+      <Container>
+        {/* <button onClick={() => itemDoneHandler(0)}>Click</button> */}
 
-      <form onSubmit={newItemHandler}>
-        <label htmlFor="shopping-item">New Item:</label>
-        <input type="text" id="shopping-item" name="shopping-item" value={newItem} onChange={itemInputHandler} />
+        <form onSubmit={newItemHandler}>
+          <label htmlFor="shopping-item" style={{ color: isValid ? 'black' : 'red' }}>New Item:</label>
+          <input style={{ 
+            borderColor: isValid ? 'black' : 'red',
+            // backgroundColor: isValid ? 'white' : 'pink', 
+          }} type="text" id="shopping-item" name="shopping-item" value={newItem} onChange={itemInputHandler} />
 
-        <input type="submit" value="Create" />
-      </form>
+          <div>
+            <button className="button" type="submit">Create</button>
+          </div>
+        </form>
 
-      <input type="checkbox" onClick={(e) => console.log(e.target.value)}></input>
+        {/* <input type="checkbox" onClick={(e) => console.log(e.target.value)}></input> */}
 
-      {shoppingListSection}
-    </Container>
+        {shoppingListSection}
+      </Container>
+    </div>
   )
 }
 

@@ -22,7 +22,7 @@ const TodoItem = ({ todoData, onTaskDone, onTaskRemove, onTaskEdit }) => {
         <label htmlFor={`done-${id}`}>{done ? 'Task done' : 'Task is not completed yet'}</label>
       </div>
 
-      <button onClick={() => onTaskRemove(id)}>Remove</button>
+      <button className='button' onClick={() => onTaskRemove(id)}>Remove</button>
       <button onClick={() => onTaskEdit(id)}>Edit a task</button>
     </div>
   )
