@@ -8,30 +8,57 @@
     opacity: 0.5;
   }
 
-  input {
-    background-color: beige;
+  // input {
+  //   background-color: beige;
 
-    &:focus {
-      background-color: bisque;
-    }
-  }
-  
-  .button {
-    background-color: bisque;
-    font-size: 20px;
-    border: 2px solid chocolate;
-    padding: 10px 15px;
-    border-radius: 10px;
-    color: chocolate;
-    font-weight: bold;
-    cursor: pointer;
-    margin-top: 10px;
-    transition: background-color 0.3s, color 0.3s;
-  
-    &:hover {
-      background-color: chocolate;
-      color: bisque;
-    }
-  }
+  //   &:focus {
+  //     background-color: bisque;
+  //   }
+  // }
+
+  // label {
+  //   font-size: 25px;
+  //   color: chocolate;
+  // }
+
+  // .form-control {
+  //   border: 2px solid chocolate;
+  //   display: flex;
+  //   flex-direction: column;
+  //   row-gap: 10px;
+  //   text-align: center;
+  //   padding: 20px;
+  //   background-color: rgba(255, 255, 255, 0.611);
+  //   border-radius: 20px;
+  // }
+
+  // .form-control.invalid {
+  //   label {
+  //     color: red;
+  //   }
+
+  //   input {
+  //     border-color: red;
+  //     background-color: pink;
+  //   }
+  // }
+
 }
+  
+// .button {
+//   background-color: bisque;
+//   font-size: 20px;
+//   border: 2px solid chocolate;
+//   padding: 10px 15px;
+//   border-radius: 10px;
+//   color: chocolate;
+//   font-weight: bold;
+//   cursor: pointer;
+//   margin-top: 10px;
+//   transition: background-color 0.3s, color 0.3s;
 
+//   &:hover {
+//     background-color: chocolate;
+//     color: bisque;
+//   }
+// }
